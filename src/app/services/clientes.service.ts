@@ -36,12 +36,3 @@ export class ClientesService {
     return this.http.get<Clientes[]>(url)         // Aquí no hay body
   }
 }
-
-
-
-
-
-
-
-
-

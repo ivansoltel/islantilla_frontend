@@ -8,40 +8,43 @@
     sexo: number
 -->
 
-<form (ngSubmit)="insertarCliente()" #form="ngForm" class="container mt-4 bg-primary">
-    <!-- Otros campos... -->
-    <div class="mb-3">
-        <label for="nif" class="form-label">NIF</label>
-        <input type="text" class="form-control" id="nif" ngModel name="nif" required>
-    </div>
-    <div class="mb-3">
-        <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="nombre" ngModel name="nombre" required>
-    </div>
-    <div class="mb-3">
-        <label for="edad" class="form-label">Edad</label>
-        <input type="number" class="form-control" id="edad" ngModel name="edad" required>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Sexo</label>
-        <div class="form-check">
-            <input type="radio" class="form-check-input" id="sexoMujer" name="sexo" value="1" ngModel required>
-            <label class="form-check-label" for="sexoMujer">Mujer</label>
-        </div>
-        <div class="form-check">
-            <input type="radio" class="form-check-input" id="sexoHombre" name="sexo" value="0" ngModel required>
-            <label class="form-check-label" for="sexoHombre">Hombre</label>
-        </div>
-    </div>
-
-    <!-- Botón de envío... -->
-        <button type="submit" class="btn btn-primary">Crear Cliente</button>
-</form> 
-
-<!-- Formulario existente aquí... -->
+<section>
+    <h2>Formulario inserción clientes</h2>
+    <form (ngSubmit)="insertarCliente()" #form="ngForm" class="container mt-4 bg-primary">
+        <!-- Otros campos... -->
+            <br><br>
+            <label for="nif" class="form-label">NIF</label><br>
+            <input type="text" class="form-control" id="nif" [(ngModel)]="nif" name="nif" required><br>
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre" name="nombre" required>
+            <label for="edad" class="form-label">Edad</label>
+            <input type="number" class="form-control" id="edad" [(ngModel)]="edad" name="edad" required>
+            <label class="form-label">Sexo</label>
+            <section class="form-check">
+                <input type="radio" class="form-check-input" id="sexoMujer" [(ngModel)]="sexo" name="sexo" value="1"
+                    ngModel required>
+                <label class="form-check-label" for="sexoMujer">Mujer</label>
+            </section>
+            
+            <section class="form-check">
+                <input type="radio" class="form-check-input" id="sexoHombre" [(ngModel)]="sexo" name="sexo" value="0"
+                    ngModel required>
+                <label class="form-check-label" for="sexoHombre">Hombre</label>
+            </section>
+            <hr><br>
+        <!-- Botón de envío... -->
+        <button type="submit" class="btn btn-warning">Crear Cliente</button>
+        <br><br>
+    </form>
+</section>
+<!-- Mensaje -->
+<div *ngIf="mensaje" class="alert alert-success">
+    {{ mensaje }}
+</div>
 
 <!-- Añadir la tabla debajo del formulario -->
-<div class="container mt-4">
+<section class="container mt-4">
+    <h2>Tabla Clientes</h2>
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -60,4 +63,4 @@
             </tr>
         </tbody>
     </table>
-</div>
+</section>

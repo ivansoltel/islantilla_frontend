@@ -16,6 +16,12 @@ export class FormulariosClientesComponent implements OnInit {
   clientes: Clientes[] = [];
   mensaje = '';
 
+  // Propiedades para el formulario
+  nif = '';
+  nombre = '';
+  edad: number = 0;
+  sexo: number = 0;
+
   // Al arrancar la aplicación se cargan los clientes en el array
   ngOnInit(): void {
     this.cargarClientes();
@@ -32,18 +38,17 @@ export class FormulariosClientesComponent implements OnInit {
   // @PostMapping("/insertar/{nif}/{nombre}/{edad}/{sexo}")
   insertarCliente(): void {
     let nuevoCliente: Clientes = {
-      nif: '',
-      nombre: '',
-      edad: 0,
-      sexo: 0,
+      nif: this.nif,
+      nombre: this.nombre,
+      edad: this.edad,
+      sexo: this.sexo,
     };
 
-    this.servicioClientes
-      .insertarCliente(nuevoCliente)
-      .subscribe((resultado) => {
-        if (resultado) {
-          this.mensaje = 'Cliente Insertado';
-        }
-      });
+    this.servicioClientes.insertarCliente(nuevoCliente).subscribe((resultado) => {
+      if (resultado) {
+        this.mensaje = 'Cliente Insertado';
+        this.cargarClientes(); // Opcional: actualizar la lista de clientes
+      }
+    });
   }
 }
