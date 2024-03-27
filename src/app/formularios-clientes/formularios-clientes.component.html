@@ -11,7 +11,8 @@
 <section>
     <h2>Formulario inserción clientes</h2>
     <form (ngSubmit)="insertarCliente()" #form="ngForm" class="container mt-4 bg-primary">
-        <!-- Otros campos... -->
+        <!-- OJO! Para cada input hay que meter el ngModel
+        asociado al modelo de la entidad. Ej: [(ngModel)]="nif" -->
             <br><br>
             <label for="nif" class="form-label">NIF</label><br>
             <input type="text" class="form-control" id="nif" [(ngModel)]="nif" name="nif" required><br>
@@ -31,16 +32,27 @@
                     ngModel required>
                 <label class="form-check-label" for="sexoHombre">Hombre</label>
             </section>
+
+            <!-- Si quiero hace un select
+            <section>
+                <select name="clientes" id="clientes" [(ngModel)]="nif">
+                    <option value="{{ cliente.nif }}" *ngFor="let cliente of clientes">{{ cliente.nombre }}</option>
+                </select>
+            </section>
+            -->
             <hr><br>
         <!-- Botón de envío... -->
         <button type="submit" class="btn btn-warning">Crear Cliente</button>
         <br><br>
     </form>
 </section>
+
 <!-- Mensaje -->
-<div *ngIf="mensaje" class="alert alert-success">
+<hr><br><br>
+
+<section *ngIf="mensaje" class="alert alert-success">
     {{ mensaje }}
-</div>
+</section>
 
 <!-- Añadir la tabla debajo del formulario -->
 <section class="container mt-4">

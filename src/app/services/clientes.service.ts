@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 import { Clientes } from '../models/clientes.model';
 import { environment } from '../../environments/environment.development';
 
+// En producción dejariamos el de abajo
+// import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'

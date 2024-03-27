@@ -17,10 +17,10 @@ export class FormulariosClientesComponent implements OnInit {
   mensaje = '';
 
   // Propiedades para el formulario
-  nif = '';
-  nombre = '';
+  nif = '--';
+  nombre = '--';
   edad: number = 0;
-  sexo: number = 0;
+  sexo: number = 1;
 
   // Al arrancar la aplicación se cargan los clientes en el array
   ngOnInit(): void {
